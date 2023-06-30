@@ -1,0 +1,22 @@
+version: "3"
+services:
+  votenet_dev:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        BUILD_USER: ${USER}
+    container_name: votenet_dev
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    tty: true
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+
+    volumes:
+       - ./votenet:/home/${USER}/votenet
