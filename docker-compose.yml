@@ -15,8 +15,6 @@ services:
               count: 1
               capabilities: [gpu]
     tty: true
-    environment:
-      - JUPYTER_ENABLE_LAB=yes
 
     volumes:
        - ./votenet:/home/${USER}/votenet
