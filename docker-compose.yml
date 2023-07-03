@@ -4,8 +4,9 @@ services:
     build: 
       context: .
       dockerfile: ./Dockerfile
-      args:
-        BUILD_USER: ${USER}
+#      args:
+#        BUILD_USER: ${USER}
+    image: votenet_dev_image
     container_name: votenet_dev
     deploy:
       resources:
@@ -15,6 +16,10 @@ services:
               count: 1
               capabilities: [gpu]
     tty: true
-
     volumes:
-       - ./votenet:/home/${USER}/votenet
+       - ./votenet:/home/appuser/votenet
+    environment:
+      - LOCAL_UID=1002
+      - LOCAL_GID=1002
+#    entrypoint: /usr/local/bin/entrypoint.sh
+#    command: /bin/bash -c "/usr/local/bin/entrypoint.sh"
