@@ -18,7 +18,7 @@ RUN apt-get install -y \
  && rm -rf /var/lib/apt/lists/*
 
 # ~/.local/lib/python3.8/site-packagesではなく
-# 
+# /usr/local/lib/python3.8/dist-packagesにインストール
 # opencvはpipが古いバージョンだとビルドできない
 RUN pip3 install --upgrade pip
 RUN pip3 install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html

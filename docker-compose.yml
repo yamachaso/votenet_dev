@@ -19,7 +19,8 @@ services:
     volumes:
        - ./votenet:/home/appuser/votenet
     environment:
-      - LOCAL_UID=1002
-      - LOCAL_GID=1002
+      - LOCAL_UID=${UID}
+      - LOCAL_GID=${GID}
+    env_file: .env
 #    entrypoint: /usr/local/bin/entrypoint.sh
 #    command: /bin/bash -c "/usr/local/bin/entrypoint.sh"
